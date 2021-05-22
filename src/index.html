@@ -10,33 +10,40 @@
     crossorigin="anonymous" />
   <link rel="stylesheet" href="./sass/style.scss">
 </head>
+
 <body>
   <!-- <h1>Поиск страны</h1> -->
-  <div clasa=>
-    <input class="search" id="country-name" type="text"></input>
-    <h2 class="country-title">Switzerland</h2>
-    <div>
-      <section class="label-value-row">
-        <h3 class="label">Capital:</h3>
-        <span class="value">Bern</span>
+  <div class="container">
+    <input class="search-input" id="country-name" type="text"></input>
+    <section id="result">
+      <h2 class="country-title">Switzerland</h2>
+      <section class="country-details">
+        <section class="country-description">
+          <section>
+            <section class="label-value-row">
+              <h3 class="label">Capital:</h3>
+              <span class="value">Bern</span>
+            </section>
+            <section>
+              <h3 class="label">Population:</h3>
+              <span class="value">8341600</span>
+            </section>
+            <section>
+              <h3 class="label">Languages:</h3>
+              <ul>
+                <li class="value">German</li>
+                <li class="value">French</li>
+                <li class="value">Italian</li>
+              </ul>
+            </section>
+          </section>
+        </section>
+        <section class="country-flag">
+          <img src="https://restcountries.eu/data/che.svg">
+        </section>
       </section>
-      <section>
-        <h3 class="label">Population:</h3>
-        <span class="value">8341600</span>
-      </section>
-      <section>
-        <h3 class="label">Languages:</h3>
-        <ul>
-          <li class="value">German</li>
-          <li class="value">French</li>
-          <li class="value">Italian</li>
-        </ul>
-      </section>
-    </div>
-<div class="flag">
-  <img src="https://restcountries.eu/data/che.svg" width="300" height="300">
-</div>
-</div>
+    </section>
+  </div>
 
   <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
   <!-- <script src="./index.js"></script> -->

@@ -360,7 +360,6 @@
     "p-try": "^2.2.0",
     "pako": "^0.2.9",
     "parcel-bundler": "^1.12.5",
-    "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parse-asn1": "^5.1.6",
     "parse-json": "^4.0.0",
     "parse5": "^5.1.0",
@@ -467,7 +466,6 @@
     "safe-buffer": "^5.1.2",
     "safe-regex": "^1.1.0",
     "safer-buffer": "^2.1.2",
-    "sass": "^1.32.10",
     "sax": "^1.2.4",
     "saxes": "^3.1.11",
     "semver": "^6.3.0",
@@ -577,7 +575,10 @@
     "xmlchars": "^2.2.0",
     "xtend": "^4.0.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "sass": "^1.33.0"
+  },
   "scripts": {
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /olechka-moiseenko/goit-js-hw-12-countries",
