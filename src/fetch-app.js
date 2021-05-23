@@ -1,5 +1,5 @@
 import "./sass/style.scss";
-import countriesCardTpl from "../templates/countries.hbs";
+import countriesCardTpl from "./templates/one-country.hbs";
 import API from "./fetchCountries.js";
 import getRefs from "./get-refs";
 import debounce from "lodash.debounce";
@@ -20,10 +20,7 @@ function onSearch(e) {
     .finally(() => form.reset());
 }
 
-function renderCountriesCard(country) {
-  const markup = countriesCardTpl(country);
-  refs.countryContainer.innerHTML = markup;
-}
+
 
 function onFetchError(error) {
   alert("По вашему запросу ничего не найдено");
