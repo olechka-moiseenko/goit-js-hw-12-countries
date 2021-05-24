@@ -1,32 +1,37 @@
-import fetchCountries from "./fetchCountries";
 import "./sass/style.scss";
-// import "./fetchCountries.js";
-//import "./fetch-app.js";
+import { fetchCountries } from "./fetchCountries.js";
+import debounce from 'lodash.debounce';
+import countriesCardTpl from "./templates/one-country.hbs";
+import countriesList from "./templates/list-countries.hbs";
+import { tooManyItems, noItemsQualified, closeAllMessages } from './pnotify.js';
 
-// Test one country
-
-// import countriesCardTpl from "./templates/one-country.hbs";
-// function renderCountriesCard(country) {}
-// const resultEl = document.querySelector("#result");
-// resultEl.innerHTML = countriesCardTpl({
-//   name: "name",
-//   capital: "capital",
-//   population: "population",
-//   Languages: ["en", "fr"],
-//   flagUrl: "https://restcountries.eu/data/che.svg",
-// });
-
-import tmpl from "./templates/list-countries.hbs";
-const resultEl = document.querySelector("#result");
-resultEl.innerHTML = tmpl({
-  countries: [{ name: "Mango" }, { name: "pineapple" }],
-});
-
-function fetchCountry(name) {
-  return fetch(`https://restcountries.eu/rest/v2/name/${name}`).then(
-    (response) => {
-      return response.json();
-    }
-  );
+const refs = {
+  input: document.querySelector("#country-name"),
+  result: document.querySelector("#result"),
 }
-fetchCountry("Uk");
+
+refs.input.addEventListener("input", debounce(onInputSearch, 500));
+
+function onInputSearch () {
+  refs.result.innerHTML = '';
+  closeAllMessages();
+  const name = refs.input.value;
+  fetchCountries(name) 
+   .then(show)
+   .catch((error) => noItemsQualified());
+}
+
+
+function show(countries) {
+ if (countries.length === 1) {
+    refs.result.innerHTML = countriesCardTpl(countries[0]);
+  }
+  else if(countries.length < 10)
+  {
+    refs.result.innerHTML = countriesList(countries);
+  }
+  else
+  {
+    tooManyItems();
+  }
+}
