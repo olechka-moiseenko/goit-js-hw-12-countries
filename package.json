@@ -18,7 +18,7 @@
   },
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --public-url /olechka-moiseenko/goit-js-hw-12-countries",
+    "build": "parcel build src/index.html --public-url /goit-js-hw-12-countries",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
