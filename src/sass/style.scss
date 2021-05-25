@@ -1,5 +1,5 @@
 .container {
-  width: 640px;
+  width: 700px;
   padding: 20px;
 }
 
@@ -17,6 +17,8 @@
 
 .label {
   @extend .usual_text;
+  margin: 0;
+  padding-right: 10px;
   display: inline;
 }
 .value {
@@ -34,14 +36,16 @@
     display: flex;
   }
   &-description {
-    width: 300px;
+    width: 50%;
     &-fields > section {
       margin-top: 18px;
     }
   }
-  &-flag > img {
-    width: 300px;
-    margin-left: 120px;
+  &-flag{
+    width: 50%;
+    & > img{
+      width: 100%;
+    }
   }
   &-title {
     font-size: 44px;
